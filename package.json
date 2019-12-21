@@ -1,0 +1,28 @@
+{
+  "name": "roll20-api-boilerplate",
+  "version": "0.0.1",
+  "description": "An api module boilerplate for Roll20 API scripts (command-based)",
+  "main": "boilerplate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/therebelrobot/roll20-api-boilerplate.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/therebelrobot/roll20-api-boilerplate/issues"
+  },
+  "homepage": "https://github.com/therebelrobot/roll20-api-boilerplate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "rollup": "^1.27.13",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
