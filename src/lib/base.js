@@ -13,15 +13,16 @@ const inputHandler = function(msg) {
 
   debugLog(`handle input > ${msg.content}`);
 
-  const args = msg.content.split(',').filter(arg => typeof arg === 'string');
+  const args = msg.content.split(' ').filter(arg => typeof arg === 'string').map(str => str.trim());
 
   if (args[0] === `!${meta.command}`) {
     debugLog('command was called! <');
-    if (args[1] && subCommmands.hasOwnProperty(args[1])) {
-      debugLog(`subcommand was called! < ${args[1]}`);
-      args.shift();
-      args.shift();
-      subCommmands[args[1]].handler(args);
+    args.shift();
+    const subCommand = args[0]
+    args.shift();
+    if (subCommand && subCommmands.hasOwnProperty(subCommand) && subCommmands[subCommand].hasOwnProperty('handler')) {
+      debugLog(`subcommand was called! < ${subCommand}`);
+      subCommmands[subCommand].handler(args);
     } else {
       debugLog('invalid args');
       subCommmands.help.handler(args, `Arguments invalid: ${args.join(' ')}`);
